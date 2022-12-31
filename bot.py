@@ -56,37 +56,34 @@ class Bot:
 							'/html/body/div[2]/div/div/div/div[1]/div/div/div/div[1]/div[1]/div/div[2]/div/section/div/div/div/div/div[1]/div[1]/div/div[3]').click()
 		self.bot.implicitly_wait(20)
 
-	def message(self, recipient):
+	def message(self, username, forename):
 		# enter the username
 		self.bot.find_element(By.XPATH,
-							'/html/body/div[2]/div/div/div/div[2]/div/div/div[1]/div/div[2]/div/div/div/div/div[2]/div/div[2]/div[1]/div/div[2]/input').send_keys(recipient)
+							'/html/body/div[2]/div/div/div/div[2]/div/div/div[1]/div/div[2]/div/div/div/div/div[2]/div/div[2]/div[1]/div/div[2]/input').send_keys(username)
 		
 		self.bot.implicitly_wait(20)
 		# click on the username
 		self.bot.find_element(By.XPATH,
 							'/html/body/div[2]/div/div/div/div[2]/div/div/div[1]/div/div[2]/div/div/div/div/div[2]/div/div[2]/div[2]/div[1]/div/div[2]/div/div').click()
-
-
 		# next button
 		self.bot.implicitly_wait(20)
 		self.bot.find_element(By.XPATH,
 							'/html/body/div[2]/div/div/div/div[2]/div/div/div[1]/div/div[2]/div/div/div/div/div[2]/div/div[1]/div/div[3]/div/button/div').click()
+		
 		# click on message area
 		self.bot.implicitly_wait(20)
 		send = self.bot.find_element(By.XPATH,
 									'/html/body/div[2]/div/div/div/div[1]/div/div/div/div[1]/div[1]/div/div[2]/div/section/div/div/div/div/div[2]/div[2]/div/div[2]/div/div/div[2]/textarea')
-		"""
 		# types message
 		self.bot.implicitly_wait(20)
-		send.send_keys("Happy new year!")
-	
+		send.send_keys("Happy new year " + forename + "!")
+
 		# send message
 		self.bot.implicitly_wait(20)
 		send.send_keys(Keys.RETURN)
-		"""
+		
 		# clicks on direct option or pencil icon
-		self.bot.implicitly_wait(50)
+		time.sleep(0.5)
 		self.bot.find_element(By.XPATH,
 							'/html/body/div[2]/div/div/div/div[1]/div/div/div/div[1]/div[1]/div/div[2]/div/section/div/div/div/div/div[1]/div[1]/div/div[3]').click()
-
 
